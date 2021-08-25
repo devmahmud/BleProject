@@ -1,14 +1,17 @@
-import {configureStore} from '@reduxjs/toolkit';
+import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import {combineReducers} from 'redux';
-import UserReducer from './users';
+import DeviceReducer from './deviceSlice';
 
 const reducer = combineReducers({
   // here we will be adding reducers
-  user: UserReducer,
+  device: DeviceReducer,
 });
 
 const store = configureStore({
   reducer,
+  middleware: getDefaultMiddleware({
+    serializableCheck: false,
+  }),
 });
 
 export default store;

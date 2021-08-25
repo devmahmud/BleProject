@@ -1,35 +1,44 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Button} from 'react-native';
-import {useSelector} from 'react-redux';
-import {BleManager, Device} from 'react-native-ble-plx';
+import {
+  SafeAreaView,
+  View,
+  Button,
+  FlatList,
+  StyleSheet,
+  ActivityIndicator,
+} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
+import {BleManager} from 'react-native-ble-plx';
+import {addDevice, clearDevice} from '../store/deviceSlice';
+import DeviceCard from '../components/DeviceCard';
 
 const manager = new BleManager();
 
 const Home = () => {
-  const {user} = useSelector(state => state.user);
+  const {devices} = useSelector(state => state.device);
 
   // state to give the user a feedback about the manager scanning devices
   const [isLoading, setIsLoading] = useState(false);
 
-  const scanDevices = () => {
+  const dispatch = useDispatch();
+
+  const scanDevices = async () => {
     // display the Activityindicator
     setIsLoading(true);
 
-    manager.enable().then(() => {
-      // scan devices
-      manager.startDeviceScan(null, null, (error, scannedDevice) => {
-        if (error) {
-          console.warn(error);
-        }
-        console.log(scannedDevice);
-      });
-
-      // stop scanning devices after 5 seconds
-      setTimeout(() => {
-        manager.stopDeviceScan();
-        setIsLoading(false);
-      }, 5000);
+    manager.startDeviceScan(null, null, (error, scannedDevice) => {
+      if (error) {
+        console.warn(error);
+      }
+      if (scannedDevice) {
+        dispatch(addDevice(scannedDevice));
+      }
     });
+    // stop scanning devices after 10 seconds
+    setTimeout(() => {
+      manager.stopDeviceScan();
+      setIsLoading(false);
+    }, 10000);
   };
 
   useEffect(() => {
@@ -39,11 +48,42 @@ const Home = () => {
   }, []);
 
   return (
-    <View>
-      <Text>Home Screen</Text>
-      <Button title="Scan devices" onPress={scanDevices} />
-    </View>
+    <SafeAreaView>
+      <View style={styles.topView}>
+        <Button title="Clear devices" onPress={() => dispatch(clearDevice())} />
+      </View>
+
+      {isLoading ? (
+        <View style={styles.activityIndicatorContainer}>
+          <ActivityIndicator color={'teal'} size={25} />
+        </View>
+      ) : (
+        <Button title="Scan devices" onPress={scanDevices} />
+      )}
+
+      <FlatList
+        keyExtractor={item => item.id}
+        data={devices}
+        renderItem={({item}) => <DeviceCard device={item} />}
+        contentContainerStyle={styles.content}
+      />
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  topView: {
+    marginVertical: 10,
+  },
+  content: {
+    paddingHorizontal: 5,
+  },
+  btnContainer: {
+    flex: 2,
+    flexDirection: 'row',
+    marginLeft: 20,
+  },
+  activityIndicatorContainer: {marginVertical: 6},
+});
 
 export default Home;
