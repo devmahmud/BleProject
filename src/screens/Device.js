@@ -1,5 +1,6 @@
 import React, {useState, useCallback, useEffect} from 'react';
 import {Text, View, ScrollView, Button, StyleSheet} from 'react-native';
+import ServiceCard from '../components/ServiceCard';
 
 const Device = ({navigation, route}) => {
   // get the device object which was given through navigation params
@@ -57,7 +58,9 @@ const Device = ({navigation, route}) => {
           <Text>{`UUIDS : ${device.serviceUUIDs}`}</Text>
         </View>
         {/* Display a list of all services */}
-        {/* {services && services.map(service => <ServiceCard service={service} />)} */}
+        {services?.map(service => (
+          <ServiceCard service={service} />
+        ))}
       </View>
     </ScrollView>
   );
