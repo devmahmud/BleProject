@@ -1,11 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Characteristic, Descriptor, Service} from 'react-native-ble-plx';
-import {CharacteristicCard} from './CharacteristicCard';
-import {DescriptorCard} from './DescriptorCard';
-
-const UART_SERVICE_UUID =
-  '6E400001-B5A3-F393-­E0A9-­E50E24DCCA9E'.toLowerCase();
+import CharacteristicCard from './CharacteristicCard';
+import DescriptorCard from './DescriptorCard';
 
 const ServiceCard = ({service}) => {
   const [descriptors, setDescriptors] = useState([]);
@@ -35,15 +31,14 @@ const ServiceCard = ({service}) => {
         <Text>{`UUID : ${service.uuid}`}</Text>
       </TouchableOpacity>
 
-      {/* {areCharacteristicsVisible &&
-        characteristics &&
-        characteristics.map((char) => (
+      {areCharacteristicsVisible &&
+        characteristics?.map(char => (
           <CharacteristicCard key={char.id} char={char} />
         ))}
       {descriptors &&
-        descriptors.map((descriptor) => (
+        descriptors.map(descriptor => (
           <DescriptorCard key={descriptor.id} descriptor={descriptor} />
-        ))} */}
+        ))}
     </View>
   );
 };

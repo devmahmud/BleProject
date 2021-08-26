@@ -59,7 +59,7 @@ const Device = ({navigation, route}) => {
         </View>
         {/* Display a list of all services */}
         {services?.map(service => (
-          <ServiceCard service={service} />
+          <ServiceCard key={service.id} service={service} />
         ))}
       </View>
     </ScrollView>
