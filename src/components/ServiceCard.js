@@ -45,7 +45,7 @@ const ServiceCard = ({service}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#69ebd0',
     marginBottom: 12,
     borderRadius: 16,
     shadowColor: 'rgba(60,64,67,0.3)',

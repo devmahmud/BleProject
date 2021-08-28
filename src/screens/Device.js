@@ -58,6 +58,7 @@ const Device = ({navigation, route}) => {
           <Text>{`UUIDS : ${device.serviceUUIDs}`}</Text>
         </View>
         {/* Display a list of all services */}
+        <Text style={styles.title}>Services</Text>
         {services?.map(service => (
           <ServiceCard key={service.id} service={service} />
         ))}
@@ -74,12 +75,22 @@ const styles = StyleSheet.create({
   header: {
     marginVertical: 10,
     borderRadius: 16,
-    backgroundColor: '#69ebd0',
+    backgroundColor: '#49d49d',
     shadowColor: 'rgba(60,64,67,0.3)',
     shadowOpacity: 0.4,
     shadowRadius: 10,
     elevation: 4,
     padding: 12,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
+    backgroundColor: '#9c6846',
+    padding: 5,
+    borderRadius: 10,
+    textAlign: 'center',
+    marginBottom: 5,
   },
 });
 

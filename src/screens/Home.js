@@ -85,7 +85,11 @@ const Home = () => {
   return (
     <SafeAreaView>
       <View style={styles.topView}>
-        <Button title="Clear devices" onPress={() => dispatch(clearDevice())} />
+        <Button
+          title="Clear devices"
+          color="#9c6846"
+          onPress={() => dispatch(clearDevice())}
+        />
       </View>
 
       {isLoading ? (
