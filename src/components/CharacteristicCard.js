@@ -36,7 +36,7 @@ const CharacteristicCard = ({char}) => {
     // read on the characteristic
     char.monitor((err, cha) => {
       if (err) {
-        console.warn('ERROR');
+        console.warn('ERROR', err);
         return;
       }
       // each received value has to be decoded with a Base64
