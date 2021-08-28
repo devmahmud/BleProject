@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
-import {Base64} from '../lib/base64';
+import base64 from 'react-native-base64';
 
 const DescriptorCard = ({descriptor}) => {
   const [value, setValue] = useState('');
@@ -16,7 +16,7 @@ const DescriptorCard = ({descriptor}) => {
   return (
     <View>
       <Text>
-        {descriptor.id + ' -> ' + Base64.decode(value) + '(' + value + ')'}
+        {descriptor.id + ' -> ' + base64.decode(value) + '(' + value + ')'}
       </Text>
     </View>
   );
