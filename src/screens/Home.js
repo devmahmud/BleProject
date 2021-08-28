@@ -97,6 +97,7 @@ const Home = () => {
       )}
 
       <FlatList
+        style={styles.deviceList}
         keyExtractor={item => item.id}
         data={devices}
         renderItem={({item}) => <DeviceCard device={item} />}
@@ -119,6 +120,9 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   activityIndicatorContainer: {marginVertical: 6},
+  deviceList: {
+    marginTop: 10,
+  },
 });
 
 export default Home;

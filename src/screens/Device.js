@@ -72,9 +72,9 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    marginBottom: 12,
+    marginVertical: 10,
     borderRadius: 16,
-    backgroundColor: '#f1f1f1',
+    backgroundColor: '#69ebd0',
     shadowColor: 'rgba(60,64,67,0.3)',
     shadowOpacity: 0.4,
     shadowRadius: 10,

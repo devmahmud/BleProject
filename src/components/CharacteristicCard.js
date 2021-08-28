@@ -30,6 +30,7 @@ const CharacteristicCard = ({char}) => {
         console.warn('ERROR');
         return;
       }
+      console.log(cha);
       // each received value has to be decoded with a Base64 algorythm
       setMeasure(decodeBleString(cha?.value));
     });
@@ -50,7 +51,8 @@ const CharacteristicCard = ({char}) => {
     <TouchableOpacity
       key={char.uuid}
       style={styles.container}
-      onPress={writeCharacteristic}>
+      // onPress={writeCharacteristic}
+    >
       <Text style={styles.measure}>{measure}</Text>
       <Text style={styles.descriptor}>{descriptor}</Text>
       <Text>{`isIndicatable : ${char.isIndicatable}`}</Text>
