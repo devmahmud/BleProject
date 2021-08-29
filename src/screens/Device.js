@@ -46,7 +46,7 @@ const Device = ({navigation, route}) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Button title="disconnect" onPress={disconnectDevice} />
+      <Button title="disconnect" onPress={disconnectDevice} color="#FE5D26" />
       <View>
         <View style={styles.header}>
           <Text>{`Id : ${device.id}`}</Text>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   header: {
     marginVertical: 10,
     borderRadius: 16,
-    backgroundColor: '#49d49d',
+    backgroundColor: '#7ebc89',
     shadowColor: 'rgba(60,64,67,0.3)',
     shadowOpacity: 0.4,
     shadowRadius: 10,
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#9c6846',
+    color: '#fe5d26',
     padding: 5,
     borderRadius: 10,
     textAlign: 'center',

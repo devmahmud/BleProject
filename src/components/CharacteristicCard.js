@@ -71,7 +71,7 @@ const CharacteristicCard = ({char}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: '#FAEDCA',
     marginVertical: 12,
     borderRadius: 16,
     shadowColor: 'rgba(60,64,67,0.3)',
