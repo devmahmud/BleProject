@@ -11,11 +11,11 @@ const Device = ({navigation, route}) => {
 
   // handle the device disconnection
   const disconnectDevice = useCallback(async () => {
-    navigation.navigate('Home');
     const isDeviceConnected = await device.isConnected();
     if (isDeviceConnected) {
       await device.cancelConnection();
     }
+    navigation.navigate('Home');
   }, [device, navigation]);
 
   useEffect(() => {
@@ -85,8 +85,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#fff',
-    backgroundColor: '#9c6846',
+    color: '#9c6846',
     padding: 5,
     borderRadius: 10,
     textAlign: 'center',
