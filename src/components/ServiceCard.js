@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import CharacteristicCard from './CharacteristicCard';
 import DescriptorCard from './DescriptorCard';
 
@@ -28,7 +29,12 @@ const ServiceCard = ({service}) => {
         onPress={() => {
           setAreCharacteristicsVisible(prev => !prev);
         }}>
-        <Text style={styles.serviceTitle}>{`UUID : ${service.uuid}`}</Text>
+        <Text style={styles.serviceTitle}>
+          <Icon
+            name={areCharacteristicsVisible ? 'minus-circle' : 'plus-circle'}
+          />{' '}
+          {`UUID: ${service.uuid}`}
+        </Text>
       </TouchableOpacity>
 
       {areCharacteristicsVisible &&
@@ -45,7 +51,7 @@ const ServiceCard = ({service}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#69ebd0',
+    backgroundColor: '#C1DBB3',
     marginBottom: 12,
     borderRadius: 16,
     shadowColor: 'rgba(60,64,67,0.3)',

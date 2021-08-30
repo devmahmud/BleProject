@@ -7,6 +7,7 @@ const decodeBleString = value => {
   if (!value) {
     return '';
   }
+
   return base64.decode(value).charCodeAt(0);
 };
 
@@ -25,35 +26,28 @@ const CharacteristicCard = ({char}) => {
       });
     });
 
-    if (char.serviceUUID === '0000180f-0000-1000-8000-00805f9b34fb') {
-      char.read().then(res => {
-        console.log('Battery Percentage:', res.value);
-      });
-      // // console.log(res);
-      // console.log(Buffer.from('Ig==', 'base64').readUInt16LE(0));
-    }
-
     // read on the characteristic
     char.monitor((err, cha) => {
       if (err) {
         console.warn('ERROR', err);
         return;
       }
+      console.log('Sensor Value==>', cha?.value);
       // each received value has to be decoded with a Base64
       setMeasure(decodeBleString(cha?.value));
     });
   }, [char]);
 
-  // write on a charactestic the number 6 (e.g.)
-  const writeCharacteristic = () => {
-    // encode the string with the Base64 algorythm
-    char
-      .writeWithResponse(base64.encode('6'))
-      .then(() => {
-        console.warn('Success');
-      })
-      .catch(e => console.log('Error', e));
-  };
+  // // write on a charactestic the number 6 (e.g.)
+  // const writeCharacteristic = () => {
+  //   // encode the string with the Base64 algorythm
+  //   char
+  //     .writeWithResponse(base64.encode('6'))
+  //     .then(() => {
+  //       console.warn('Success');
+  //     })
+  //     .catch(e => console.log('Error', e));
+  // };
 
   return (
     <TouchableOpacity
@@ -77,7 +71,7 @@ const CharacteristicCard = ({char}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: '#FAEDCA',
     marginVertical: 12,
     borderRadius: 16,
     shadowColor: 'rgba(60,64,67,0.3)',

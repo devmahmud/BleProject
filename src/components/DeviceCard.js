@@ -18,10 +18,9 @@ const DeviceCard = ({device}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#49d49d',
+    backgroundColor: '#7ebc89',
     marginBottom: 12,
     borderRadius: 16,
-    shadowColor: 'rgba(73, 212, 157, 0.6)',
     shadowOpacity: 0.8,
     shadowRadius: 10,
     elevation: 8,

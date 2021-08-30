@@ -15,9 +15,9 @@ const DescriptorCard = ({descriptor}) => {
   }, []);
   return (
     <View>
-      <Text>
-        {descriptor.id + ' -> ' + base64.decode(value) + '(' + value + ')'}
-      </Text>
+      <Text>{`Descriptor ${descriptor.id} -> ${base64.decode(
+        value,
+      )} (${value})`}</Text>
     </View>
   );
 };
