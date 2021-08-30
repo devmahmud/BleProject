@@ -31,10 +31,10 @@ To setting up the development environment you can follow the guide:
 
 ## App Screenshots
 
-<img src="https://user-images.githubusercontent.com/19981097/131322360-4524fada-271d-47ae-b84b-ef4cef4b191e.png" width="200px">
-<img src="https://user-images.githubusercontent.com/19981097/131323301-9e88726c-ab99-4e47-9496-59200pxf270f39.png" width="200px">
-<img src="https://user-images.githubusercontent.com/19981097/131323320-e022ef60-e315-4c48-b4c0-29fabf243698.png" width="200px"> 
-<img src="https://user-images.githubusercontent.com/19981097/131323323-a6b1de03-733c-49d5-905f-5caf5f20c81f.png" width="200px">
+![tia8670712789165290110](https://user-images.githubusercontent.com/19981097/131328361-f175c510-1e46-42db-85f3-f1985532be68.png)
+![tia4461238793307477263](https://user-images.githubusercontent.com/19981097/131328422-1d5bdd88-6c00-4d57-b985-2d2f5875d789.png)
+![tia917587007816535281](https://user-images.githubusercontent.com/19981097/131328460-3059aed0-877f-47af-8c8b-28860a84c07f.png)
+![tia2536519398446474138](https://user-images.githubusercontent.com/19981097/131328465-e68d7f38-90ae-4d2f-8499-0769e2e37803.png)
 
 ## Author
 ```
